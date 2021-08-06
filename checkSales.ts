@@ -30,8 +30,8 @@ const buildMessage = (sale: any, usd: any) => (
   .setDescription(`${sale.asset.description.split('.')[0]}. This Pixl was sold on ${format(new Date(sale?.created_date), "yyyy-MM-dd HH:mm")} UTC.`)
 	.setThumbnail(sale.asset.image_url)
 	.addFields(
-		{ name: 'Sold For', value: `${ethers.utils.formatEther(sale.total_price)} ${ethers.constants.EtherSymbol} ($${usd})`},
-		{ name: 'Buyer', value: `[${sale?.winner_account?.address.substring(0, 8)}](https://opensea.io/accounts/${sale?.winner_account?.address})`}
+		{ name: 'Sold For', inline: true, value: `${ethers.utils.formatEther(sale.total_price)} ${ethers.constants.EtherSymbol} ($${usd})`},
+		{ name: 'Buyer', inline: true, value: `[${sale?.winner_account?.address.substring(0, 8)}](https://opensea.io/accounts/${sale?.winner_account?.address})`}
 	)
 )
 
