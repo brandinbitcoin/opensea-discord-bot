@@ -20,7 +20,9 @@ const  discordSetup = async (): Promise<TextChannel> => {
   })
 }
 
-const buildMessage = (sale: any) => (
+
+
+const buildMessage = (sale: any, usd: any) => (
   new Discord.MessageEmbed()
 	.setColor('#45da3f')
 	.setTitle(sale.asset.name + ' was sold!')
@@ -28,7 +30,7 @@ const buildMessage = (sale: any) => (
   .setDescription(`${sale.asset.description.split('.')[0]}. This Pixl was sold on ${format(new Date(sale?.created_date), "yyyy-MM-dd HH:mm")} UTC.`)
 	.setThumbnail(sale.asset.image_url)
 	.addFields(
-		{ name: 'Sold For', value: `${ethers.utils.formatEther(sale.total_price)} ${ethers.constants.EtherSymbol}`},
+		{ name: 'Sold For', value: `${ethers.utils.formatEther(sale.total_price)} ${ethers.constants.EtherSymbol} ($${usd})`},
 		{ name: 'Buyer', value: `[${sale?.winner_account?.address.substring(0, 8)}](https://opensea.io/accounts/${sale?.winner_account?.address})`}
 	)
 )
@@ -51,7 +53,9 @@ async function main() {
 
   await Promise.all(
     openSeaResponse?.asset_events?.reverse().map(async (sale: any) => {
-      const message = buildMessage(sale);
+      const formattedTokenPrice = ethers.utils.formatEther(sale.total_price.toString());
+      const usd = (Number(formattedTokenPrice) * sale.payment_token.usd_price).toFixed(2);
+      const message = buildMessage(sale, usd);
       return channel.send(message)
     })
   );   
