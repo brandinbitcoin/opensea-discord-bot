@@ -15,7 +15,7 @@
       "description": "The OpenSea slug for your collection"
     },
     "DISCORD_BOT_TOKEN": {
-      "description": "ODg0Mzc4ODQ3ODg4NDIwODc1.YTXn_A.zNwoZ4OzwMyd8Hbbx_FSdO1x0m0",
+      "description": "ODg0Mzc4ODQ3ODg4NDIwODc1.YTXn_A.D6HsMTRQEN1jxhys3FOxxVjUFzI",
       "required": true
     },
     "DISCORD_CHANNEL_ID": {
