@@ -24,7 +24,7 @@ const  discordSetup = async (): Promise<TextChannel> => {
 
 const buildMessage = (sale: any, usd: any) => (
   new Discord.MessageEmbed()
-	.setColor('#45da3f')
+	.setColor('#FFC069')
 	.setTitle(sale.asset.name + ' was sold!')
 	.setURL(sale.asset.permalink)
   .setDescription(`${sale.asset.description.split('.')[0]}. This Pixl was sold on ${format(new Date(sale?.created_date), "yyyy-MM-dd HH:mm")} UTC.`)
