@@ -15,11 +15,11 @@
       "description": "The OpenSea slug for your collection"
     },
     "DISCORD_BOT_TOKEN": {
-      "description": "The auth token for a Discord bot",
+      "description": "ODg0Mzc4ODQ3ODg4NDIwODc1.YTXn_A.zNwoZ4OzwMyd8Hbbx_FSdO1x0m0",
       "required": true
     },
     "DISCORD_CHANNEL_ID": {
-      "description": "Your Discord channel ID (snowflake), i.e. 694927656805859499, where your Bot has access and will post",
+      "description": "884380938077888552",
       "required": false
     },
     "SECONDS": {
